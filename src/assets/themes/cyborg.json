@@ -26,6 +26,9 @@
         "font_main": "United Sans Medium",
         "font_main_light": "United Sans Light"
     },
+    "clock":{
+        "fontFamily":"Rajdhani-Bold"
+    },
     "terminal": {
         "fontFamily": "Fira Code",
         "cursorStyle": "block",
@@ -41,5 +44,5 @@
         "pin": "#85ff5c",
         "satellite": "#ffff5c"
     },
-    "injectCSS": ""
+    "injectCSS": "ul#main_shell_tabs > li.active{background-color:#f8ae3f !important;}  ul#main_shell_tabs {border-bottom:3px solid #f8ae3f !important;}"
 }

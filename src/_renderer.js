@@ -97,7 +97,7 @@ window._loadTheme = theme => {
     let lightFont = new FontFace(theme.cssvars.font_main_light, `url("${path.join(fontsDir, theme.cssvars.font_main_light.toLowerCase().replace(/ /g, '_')+'.woff2').replace(/\\/g, '/')}")`);
     let termFont = new FontFace(theme.terminal.fontFamily, `url("${path.join(fontsDir, theme.terminal.fontFamily.toLowerCase().replace(/ /g, '_')+'.woff2').replace(/\\/g, '/')}")`);
     let clockFontFamily=theme.cssvars.font_main;
-    if(theme.clock.fontFamily){
+    if(theme.clock&&theme.clock.fontFamily){
         clockFontFamily=theme.clock.fontFamily;
     }
     let clockFont = new FontFace(clockFontFamily, `url("${path.join(fontsDir, clockFontFamily.toLowerCase().replace(/ /g, '_')+'.woff2').replace(/\\/g, '/')}")`);
