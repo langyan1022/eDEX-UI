@@ -56,7 +56,6 @@ class Keyboard {
                 this._shortcuts[cat].push(cut);
             }
         });
-
         // Parse keymap and create DOM
         Object.keys(layout).forEach(row => {
             this.container.innerHTML += `<div class="keyboard_row" id="`+row+`"></div>`;

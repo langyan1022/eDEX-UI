@@ -34,5 +34,5 @@
         "pin": "#aacfd1",
         "satellite": "#aacfd1"
     },
-    "injectCSS": "ul#main_shell_tabs > li.active{background-color:#f8ae3f !important;}  ul#main_shell_tabs {border-bottom:3px solid #f8ae3f !important;}"
+    "injectCSS": "ul#main_shell_tabs > li.active{background-color:#f8ae3f !important;}  ul#main_shell_tabs {border-bottom:3px solid #f8ae3f !important;}div.modal_popup button:hover{background-color:#f8ae3f !important;color:black}"
 }

@@ -10,7 +10,7 @@ class Conninfo {
                 <h2>TOTAL<i>0B OUT, 0B IN</i></h2>
                 <canvas id="mod_conninfo_canvas_top"></canvas>
                 <canvas id="mod_conninfo_canvas_bottom"></canvas>
-                <h3>OFFLINE</h3>
+                <h3>离&nbsp;&nbsp;&nbsp;&nbsp;线</h3>
             </div>
         </div>`;
 

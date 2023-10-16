@@ -15,7 +15,7 @@ class LocationGlobe {
                 <h1>WORLD VIEW<i>GLOBAL NETWORK MAP</i></h1>
                 <h2>ENDPOINT LAT/LON<i class="mod_globe_headerInfo">0.0000, 0.0000</i></h2>
                 <div id="mod_globe_canvas_placeholder"></div>
-                <h3>OFFLINE</h3>
+                <h3>离&nbsp;&nbsp;&nbsp;&nbsp;线</h3>
             </div>
         </div>`;
 
