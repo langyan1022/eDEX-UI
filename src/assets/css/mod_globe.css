@@ -61,8 +61,8 @@ div#mod_globe i {
 
 div#mod_globe i.mod_globe_headerInfo {
     padding-top: .2vh;
+    color: rgba(var(--color_r), var(--color_g), var(--color_b), 1);
 }
-
 div#mod_globe canvas {
     width: 109%;
     margin: 0px;
@@ -81,7 +81,10 @@ div#mod_globe h3 {
     position: absolute;
     font-size: 2vh;
     z-index: 15;
+    color: red;
     opacity: 0;
+    transition: opacity 1s ease-out;
+    transition-duration: 1s;
 }
 
 div#mod_globe.offline canvas {
@@ -90,4 +93,11 @@ div#mod_globe.offline canvas {
 
 div#mod_globe.offline h3 {
     opacity: 1;
+    display: block;
+    padding: 2vh 2vw;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left:2px solid red ;
+    border-right:2px solid red ;
+    transition: all 1s ease-in;
+    transition-duration: 1s;
 }

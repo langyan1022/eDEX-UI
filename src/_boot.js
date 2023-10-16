@@ -187,7 +187,7 @@ function createWindow(settings) {
         resizable: true,
         movable: settings.allowWindowed || false,
         fullscreen: settings.forceFullscreen || false,
-        autoHideMenuBar: true,
+        autoHideMenuBar: false,
         frame: settings.allowWindowed || false,
         backgroundColor: '#000000',
         webPreferences: {

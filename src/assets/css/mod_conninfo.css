@@ -84,6 +84,9 @@ div#mod_conninfo h3:last-child {
     font-size: 2vh;
     z-index: 15;
     opacity: 0;
+    color: red;
+    transition: opacity 1s ease-out;
+    transition-duration: 1s;
 }
 
 div#mod_conninfo.offline canvas {
@@ -92,4 +95,11 @@ div#mod_conninfo.offline canvas {
 
 div#mod_conninfo.offline h3:last-child {
     opacity: 1;
+    display: block;
+    padding: 2vh 2vw;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left:2px solid red ;
+    border-right:2px solid red ;
+    transition: all 1s ease-in;
+    transition-duration: 1s;
 }

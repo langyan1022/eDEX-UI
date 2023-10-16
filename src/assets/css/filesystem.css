@@ -181,8 +181,8 @@ div.fs_disp_other > h3 {
 
 div#fs_space_bar {
     position: relative;
-    top: 3.5vh;
-    left: .15vw;
+    top: 3vh;
+    text-align: right;
 }
 
 div#fs_space_bar > h1 {
@@ -212,9 +212,9 @@ div#fs_disp_container.disks+div#fs_space_bar > *:not(h1) {
 }
 
 div#fs_space_bar > h3 {
-    width: 30%;
+    width: 100%;
     margin: 0;
-    display: inline-block;
+    display: block;
     font-size: 1.4vh;
     font-weight: normal;
     white-space: nowrap;
@@ -223,7 +223,7 @@ div#fs_space_bar > h3 {
 }
 
 div#fs_space_bar > progress {
-    width: 70%;
+    width: 100%;
     height: 1vh;
     -webkit-appearance: none;
     border: .1vh solid rgba(var(--color_r), var(--color_g), var(--color_b), 0.8);
