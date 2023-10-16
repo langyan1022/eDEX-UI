@@ -101,20 +101,25 @@ section#main_top{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
-  .ueg-icon-uniE900:before {
+  .ueg-icon-charging:before {
+    content: "\e91a";
+  }
+  .ueg-icon-power:before {
+    content: "\e91b";
+  }
+  .ueg-icon-digital:before {
     content: "\e900";
   }
   .ueg-icon-UEG:before {
     content: "\e901";
   }
-  .ueg-icon-1:before {
+  .ueg-icon-ueg-scc:before {
     content: "\e902";
   }
-  .ueg-icon-2:before {
+  .ueg-icon-scc-simple:before {
     content: "\e903";
   }
-  .ueg-icon-UEG1:before {
+  .ueg-icon-UEG-all:before {
     content: "\e904";
   }
   

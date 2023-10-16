@@ -310,7 +310,7 @@ async function displayTitleScreen() {
 
     document.body.setAttribute("class", "");
     bootScreen.setAttribute("class", "center");
-    bootScreen.innerHTML = "<h1 augmented-ui='bl-clip tr-clip exe'>550W</h1><footer><span id='boot-logo' class='ueg-icon-1'></span></footer>";
+    bootScreen.innerHTML = "<h1 augmented-ui='bl-clip tr-clip exe'>550W</h1><footer><span id='boot-logo' class='ueg-icon-ueg-scc'></span></footer>";
     let title = document.querySelector("section > h1");
 
     await _delay(200);
@@ -368,12 +368,12 @@ async function initUI() {
         <h3 class="title"><p>UEG-SCC</p><p>SYSTEM</p></h3>
     </section>
     <section id="main_top">
-    <h3><span class="ueg-icon-1"></span></h3>
+    <h3><span class="ueg-icon-ueg-scc"></span></h3>
     </section>
     <section id="main_shell" style="height:0%;width:0%;opacity:0;margin-bottom:30vh;" augmented-ui="bl-clip tr-clip exe">
         <h3 class="title" style="opacity:0;"><p>TERMINAL</p><p>MAIN SHELL</p></h3>
         <h1 id="main_shell_greeting"></h1>
-        <div class="ueg-icon-UEG1" id="shell-background"></div>
+        <div class="ueg-icon-UEG-all" id="shell-background"></div>
     </section>
     <section class="mod_column" id="mod_column_right">
         <h3 class="title"> <p >UEG-SCC</p><p>NETWORK</p></h3>

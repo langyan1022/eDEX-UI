@@ -9,7 +9,7 @@ class Sysinfo {
                 os = "macOS";
                 break;
             case "win32":
-                os = "win";
+                os = "WIN";
                 break;
             default:
                 os = require("os").platform();
@@ -19,15 +19,15 @@ class Sysinfo {
         this.parent = document.getElementById(parentId);
         this.parent.innerHTML += `<div id="mod_sysinfo">
             <div>
-                <h1>UPTIME</h1>
+                <h1>运行时间</h1>
                 <h2>0:0:0</h2>
             </div>
             <div>
-                <h1>TYPE</h1>
+                <h1>类型</h1>
                 <h2>${os}</h2>
             </div>
             <div>
-                <h1>POWER</h1>
+                <h1>电源</h1>
                 <h2>00%</h2>
             </div>
         </div>`;
@@ -65,11 +65,14 @@ class Sysinfo {
             let indicator = document.querySelector("#mod_sysinfo > div:last-child > h2");
             if (bat.hasBattery) {
                 if (bat.isCharging) {
-                    indicator.innerHTML = "充电";
+                    indicator.innerHTML = "";
+                    indicator.setAttribute("class", "ueg-icon-charging");
                 } else if (bat.acConnected) {
-                    indicator.innerHTML = "电源";
+                    indicator.innerHTML = "";
+                    indicator.setAttribute("class", "ueg-icon-power");
                 } else {
                     indicator.innerHTML = bat.percent+"%";
+                    indicator.setAttribute("class", "");
                 }
             } else {
                 indicator.innerHTML = "ON";
