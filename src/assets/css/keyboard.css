@@ -21,7 +21,7 @@ div.keyboard_row {
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    margin: 0.46vh 0vh;
+    margin: 0.3vh 0vh;
     height: 5.28vh;
 }
 
@@ -55,7 +55,7 @@ section#keyboard.animation_state_2 > * {
 
 div.keyboard_row:last-child {
     position: relative;
-    left: 2.4vh;
+    /* left: 1.4vh; */
 }
 
 div.keyboard_key {
@@ -65,7 +65,7 @@ div.keyboard_key {
     border-radius: 0.46vh;
     background-color: rgba(var(--color_r), var(--color_g), var(--color_b), 0.0);
     border: 0.18vh solid rgba(var(--color_r), var(--color_g), var(--color_b), 0.0);
-    margin: 0vh 0.46vh;
+    margin: 0vh 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +92,7 @@ section#keyboard:not([data-password-mode="true"]) div.keyboard_key.blink {
 }
 
 div.keyboard_key > * {
-    margin: 0vh 0.46vh;
+    margin: 0vh 0.3vh;
     padding: 0vh;
     -webkit-margin-after: 0vh;
     -webkit-margin-before: 0vh;
@@ -181,10 +181,9 @@ div.keyboard_row#row_2 > div.keyboard_enter {
 div.keyboard_row#row_2 > div.keyboard_enter:active, div.keyboard_row#row_2 > div.keyboard_enter.active {
     border-top: 0.3vh solid rgb(var(--color_r), var(--color_g), var(--color_b));
 }
-
 div.keyboard_key#keyboard_spacebar {
-    width: 47.68vh;
-    min-width: 47.68vh;
+    width: 25.68vw;
+    min-width: 25.68vw;
     height: 3.52vh;
 }
 
@@ -208,7 +207,7 @@ section#keyboard[data-is-shift-on="true"] > div.keyboard_row > div.keyboard_key 
     position: relative;
     top: 0.278vh;
     font-size: 2.4vh;
-    margin: 0vh 0.46vh;
+    margin: 0vh 0.3vh;
 }
 
 section#keyboard[data-is-shift-on="true"] > div.keyboard_row:first-child > div.keyboard_key:last-child > h2, section#keyboard[data-is-caps-lck-on="true"] > div.keyboard_row:first-child > div.keyboard_key:last-child > h2 {
@@ -238,7 +237,7 @@ section#keyboard[data-is-fn-on="true"] > div.keyboard_row > div.keyboard_key > h
     position: relative;
     top: 0.278vh;
     font-size: 2.4vh;
-    margin: 0vh 0.46vh;
+    margin: 0vh 0.3vh;
     opacity: 1;
 }
 
