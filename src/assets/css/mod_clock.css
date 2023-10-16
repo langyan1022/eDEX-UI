@@ -4,6 +4,7 @@ div#mod_clock {
     padding-top: 0.645vh;
     border-top: 0.092vh solid rgba(var(--color_r), var(--color_g), var(--color_b), 0.3);
     font-family: var(--font_clock);
+    flex-wrap: wrap;
 }
 
 div#mod_clock::before {
@@ -27,6 +28,8 @@ div#mod_clock::after {
 div#mod_clock h1 {
     margin: auto;
     font-size: 4vh;
+    width: 100%;
+    text-align: center;
 }
 
 div#mod_clock span, div#mod_clock em {
@@ -48,4 +51,13 @@ div#mod_clock em {
 
 div#mod_clock.mod_clock_twelve h1 span:last-child {
     font-size: 1.5vh;
+}
+div#mod_clock_date{
+    font-size: 1vh;
+    text-align: center;
+    width: 100%;
+    
+}
+div#mod_clock_date span{
+    color: rgba(var(--color_r), var(--color_g), var(--color_b), 0.9) ;
 }

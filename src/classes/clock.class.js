@@ -9,7 +9,11 @@ class Clock {
         this.parent = document.getElementById(parentId);
         this.parent.innerHTML += `<div id="mod_clock" class="${(this.twelveHours) ? "mod_clock_twelve" : ""}">
             <h1 id="mod_clock_text"><span>?</span><span>?</span><span>:</span><span>?</span><span>?</span><span>:</span><span>?</span><span>?</span></h1>
-        </div>`;
+            <div id="mod_clock_date">
+              <span>1970</span><span>年</span><span>01</span><span>月</span><span>01</span><span>日</span>
+            </div>
+        </div>
+       `;
 
         this.lastTime = new Date();
 
@@ -17,6 +21,7 @@ class Clock {
         this.updater = setInterval(() => {
             this.updateClock();
         }, 1000);
+        this.updateDate();
     }
     updateClock() {
         let time = new Date();
@@ -46,6 +51,58 @@ class Clock {
 
         document.getElementById("mod_clock_text").innerHTML = clockString;
         this.lastTime = time;
+    }
+    updateDate() {
+        let time = new Date();
+
+        document.querySelector("#mod_clock_date > span:nth-child(1)").innerHTML = time.getFullYear();
+
+        let month = time.getMonth();
+        switch(month) {
+            case 0:
+                month = "01";
+                break;
+            case 1:
+                month = "02";
+                break;
+            case 2:
+                month = "03";
+                break;
+            case 3:
+                month = "04";
+                break;
+            case 4:
+                month = "05";
+                break;
+            case 5:
+                month = "06";
+                break;
+            case 6:
+                month = "07";
+                break;
+            case 7:
+                month = "08";
+                break;
+            case 8:
+                month = "09";
+                break;
+            case 9:
+                month = "10";
+                break;
+            case 10:
+                month = "11";
+                break;
+            case 11:
+                month = "12";
+                break;
+        }
+        document.querySelector("#mod_clock_date > span:nth-child(3)").innerHTML = month;
+        document.querySelector("#mod_clock_date > span:nth-child(5)").innerHTML = time.getDate();
+       
+        let timeToNewDay = ((23 - time.getHours()) * 3600000) + ((59 - time.getMinutes()) * 60000);
+        setTimeout(() => {
+            this.updateDate();
+        }, timeToNewDay);
     }
 }
 
