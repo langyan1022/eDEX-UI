@@ -50,7 +50,7 @@ class Modal {
 
         let DOMstring = `<div id="modal_${this.id}" class="${this.classes}" style="z-index:${zindex+Object.keys(window.modals).length};" augmented-ui="${augs.join(" ")} tl-clip-x exe">
            
-            <h1><span class="modal_content_title">${this.title}</span><span class="modal_content_title_logo"><i class="ueg-icon-ueg-scc"></i></span></h1>
+            <h1><span class="modal_content_title">${this.title}</span><span class="modal_content_title_logo"><i class="ueg-icon-logo"></i></span></h1>
             ${this.type === "custom" ? options.html : "<h5>"+this.message+"</h5>"}
             <div>`;
             buttons.forEach(b => {

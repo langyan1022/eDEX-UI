@@ -121,13 +121,14 @@ class Netstat {
                                 document.querySelector("#mod_netstat_innercontainer > div:nth-child(2) > h2").innerHTML = window._escapeHtml(ip);
                                 let location={latitude:"39.918058",longitude:"116.397026"}
                                 try{
-                                    console.log(this.geoLookup.get(data.ip));
                                     location= this.geoLookup.get(data.ip).location
                                 }catch(e){}
+
                                 this.ipinfo = {
                                     ip: data.ip,
                                     geo: location
                                 };
+                                
                                 this.runsBeforeGeoIPUpdate = 10;
                             } catch(e) {
                                 this.failedAttempts[e] = (this.failedAttempts[e] || 0) + 1;

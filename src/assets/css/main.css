@@ -122,4 +122,6 @@ section#main_top{
   .ueg-icon-UEG-all:before {
     content: "\e904";
   }
-  
+  .ueg-icon-logo:before {
+    content: "\e902";
+  }
