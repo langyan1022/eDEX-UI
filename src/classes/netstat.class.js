@@ -119,16 +119,17 @@ class Netstat {
                                 let data = JSON.parse(rawData);
                                 let ip = data.ip;
                                 document.querySelector("#mod_netstat_innercontainer > div:nth-child(2) > h2").innerHTML = window._escapeHtml(ip);
-                                let location={latitude:"39.918058",longitude:"116.397026"}
+                                let location={latitude:"39.918058",longitude:"116.397026",city:"北京",country:"中国"}
                                 try{
-                                    location= this.geoLookup.get(data.ip).location
+                                    let geo=this.geoLookup.get(data.ip);
+                                    location={latitude:geo.location.latitude,longitude:geo.location.longitude,city:geo.city?geo.city.names['zh-CN']:"",country:geo.country?geo.country.names['zh-CN']:""}
                                 }catch(e){}
 
                                 this.ipinfo = {
                                     ip: data.ip,
                                     geo: location
                                 };
-                                
+
                                 this.runsBeforeGeoIPUpdate = 10;
                             } catch(e) {
                                 this.failedAttempts[e] = (this.failedAttempts[e] || 0) + 1;

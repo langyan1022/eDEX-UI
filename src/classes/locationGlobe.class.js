@@ -202,8 +202,8 @@ class LocationGlobe {
             //this.addRandomConnectedPoints();
             this.conns = [];
 
-            this._locPin = this.globe.addPin(newgeo.latitude, newgeo.longitude, "", 1.2);
-            this._locMarker = this.globe.addMarker(newgeo.latitude, newgeo.longitude, "", false, 1.2);
+            this._locPin = this.globe.addPin(newgeo.latitude, newgeo.longitude, newgeo.country+" "+newgeo.city, 1.2);
+            this._locMarker = this.globe.addMarker(newgeo.latitude, newgeo.longitude,newgeo.country+" "+newgeo.city, false, 1.2);
         }
 
         this.lastgeo = newgeo;
