@@ -440,7 +440,7 @@ async function initUI() {
     await _delay(400);
 
     greeter.remove();
-
+    await _delay(400);
     document.getElementById("shell-background").setAttribute("style", "opacity: 1;");
 
     // Initialize modules

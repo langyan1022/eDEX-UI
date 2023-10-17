@@ -101,14 +101,19 @@ section#main_top{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+ 
+  
+.ueg-icon-space:before {
+    content: "\e900";
+  }
+  .ueg-icon-bsc:before {
+    content: "\e905";
+  }
   .ueg-icon-charging:before {
     content: "\e91a";
   }
   .ueg-icon-power:before {
     content: "\e91b";
-  }
-  .ueg-icon-digital:before {
-    content: "\e900";
   }
   .ueg-icon-UEG:before {
     content: "\e901";
@@ -116,6 +121,7 @@ section#main_top{
   .ueg-icon-ueg-scc:before {
     content: "\e902";
   }
+  
   .ueg-icon-scc-simple:before {
     content: "\e903";
   }
