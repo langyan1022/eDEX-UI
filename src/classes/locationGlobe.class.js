@@ -15,7 +15,7 @@ class LocationGlobe {
                 <h1>WORLD VIEW<i>GLOBAL NETWORK MAP</i></h1>
                 <h2>ENDPOINT LAT/LON<i class="mod_globe_headerInfo">0.0000, 0.0000</i></h2>
                 <div id="mod_globe_canvas_placeholder"></div>
-                <h3>离&nbsp;&nbsp;&nbsp;&nbsp;线</h3>
+                <h3 data-augmented-ui="border">离&nbsp;&nbsp;&nbsp;&nbsp;线</h3>
             </div>
         </div>`;
 
@@ -191,6 +191,8 @@ class LocationGlobe {
     }
     async updateConOnlineConnection() {
         let newgeo = window.mods.netstat.ipinfo.geo;
+      
+
         newgeo.latitude = Math.round(newgeo.latitude*10000)/10000;
         newgeo.longitude = Math.round(newgeo.longitude*10000)/10000;
 

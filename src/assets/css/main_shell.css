@@ -5,16 +5,14 @@ section#main_shell {
     /* border: 0.18vh solid rgba(var(--color_r), var(--color_g), var(--color_b), 0.5); */
     /* border-radius: 0.278vh; */
 
-    --aug-border: 0.18vh;
+    --aug-border-all: 0.18vh;
     --aug-border-bg: rgb(var(--color_r), var(--color_g), var(--color_b));
     --aug-border-opacity: 0.5;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     overflow: hidden;
-
     transition: width .5s cubic-bezier(0.85, 0.5, 0.85, 0.5), height .5s cubic-bezier(0.85, 0.5, 0.85, 0.5);
 }
 

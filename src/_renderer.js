@@ -137,6 +137,7 @@ window._loadTheme = theme => {
         --color_black: ${window._purifyCSS(theme.colors.black)};
         --color_light_black: ${window._purifyCSS(theme.colors.light_black)};
         --color_grey: ${window._purifyCSS(theme.colors.grey)};
+        --hot-blue: rgb(var(--color_r),var(--color_g),var(--color_b));
       
         /* Used for error and warning modals */
         --color_red: ${window._purifyCSS(theme.colors.red) || "red"};
@@ -310,7 +311,7 @@ async function displayTitleScreen() {
 
     document.body.setAttribute("class", "");
     bootScreen.setAttribute("class", "center");
-    bootScreen.innerHTML = "<h1 augmented-ui='bl-clip tr-clip exe'>550W</h1><footer><span id='boot-logo' class='ueg-icon-logo'></span></footer>";
+    bootScreen.innerHTML = "<h1 data-augmented-ui='border tr-clip bl-clip'>550W</h1><footer><span id='boot-logo' class='ueg-icon-logo'></span></footer>";
     let title = document.querySelector("section > h1");
 
     await _delay(200);
@@ -365,18 +366,18 @@ async function getDisplayName() {
 // Create the UI's html structure and initialize the terminal client and the keyboard
 async function initUI() {
     document.body.innerHTML += `<section class="mod_column" id="mod_column_left">
-        <h3 class="title"><p>UEG-SCC</p><p>SYSTEM</p></h3>
+        <h3 class="title"><p>PANEL</p><p>SYSTEM</p></h3>
     </section>
     <section id="main_top">
     <h3><span class="ueg-icon-logo"></span></h3>
     </section>
-    <section id="main_shell" style="height:0%;width:0%;opacity:0;margin-bottom:30vh;" augmented-ui="bl-clip tr-clip exe">
+    <section id="main_shell" style="height:0%;width:0%;opacity:0;margin-bottom:30vh;" data-augmented-ui="border tr-clip bl-clip">
         <h3 class="title" style="opacity:0;"><p>TERMINAL</p><p>MAIN SHELL</p></h3>
         <h1 id="main_shell_greeting"></h1>
         <div class="ueg-icon-UEG-all" id="shell-background"></div>
     </section>
     <section class="mod_column" id="mod_column_right">
-        <h3 class="title"> <p >UEG-SCC</p><p>NETWORK</p></h3>
+        <h3 class="title"> <p >PANEL</p><p>NETWORK</p></h3>
     </section>`;
 
     await _delay(10);
@@ -395,7 +396,7 @@ async function initUI() {
     document.body.innerHTML += `
     <section id="filesystem" style="width: 0px;" class="${window.settings.hideDotfiles ? "hideDotfiles" : ""} ${window.settings.fsListView ? "list-view" : ""}">
     </section>
-    <section id="keyboard" style="opacity:0;"  augmented-ui="bl-clip tr-clip exe">
+    <section id="keyboard" style="opacity:0;"  data-augmented-ui="tl-clip tr-clip br-clip bl-clip border">
     </section>`;
     window.keyboard = new Keyboard({
         layout: path.join(keyboardsDir, settings.keyboard+".json"),

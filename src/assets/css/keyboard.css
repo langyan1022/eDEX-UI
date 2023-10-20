@@ -5,9 +5,33 @@ section#keyboard {
     width: 55.0vw;
     position: relative;
     top: -0.925vh;
-    --aug-border: 0.18vh;
-    --aug-border-bg: rgb(var(--color_r), var(--color_g), var(--color_b));
-    --aug-border-opacity: 0.5;
+    --aug-tl: 1vh;
+    --aug-tr: 1vh;
+    --aug-br: 1vh;
+    --aug-bl: 1vh;
+    --aug-border-all: 6px;
+    --aug-border-bg: radial-gradient(circle at top left, var(--hot-blue), var(--hot-blue) 2vh, transparent 2vh),
+                       radial-gradient(circle at top right, var(--hot-blue), var(--hot-blue) 2vh, transparent 2vh),
+                       radial-gradient(circle at bottom left, var(--hot-blue), var(--hot-blue) 2vh, transparent 2vh),
+                       radial-gradient(circle at bottom right, var(--hot-blue), var(--hot-blue) 2vh, transparent 2vh);
+    opacity: 1;
+    animation: border-display 2s infinite cubic-bezier(0,0,.49,1.02);
+    animation-delay: 200ms;
+}
+
+@keyframes border-display{
+   0%{--aug-border-all:0px}
+   50%{--aug-border-all:3px; 
+    --aug-tl: 0.5vh;
+    --aug-tr: 0.5vh;
+    --aug-br: 0.5vh;
+    --aug-bl: 0.5vh;}
+   100%{
+    --aug-border-all:6px;
+    --aug-tl: 1vh;
+    --aug-tr: 1vh;
+    --aug-br: 1vh;
+    --aug-bl: 1vh;}
 }
 
 section#keyboard[data-password-mode="true"] {

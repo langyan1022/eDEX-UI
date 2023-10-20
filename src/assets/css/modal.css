@@ -10,11 +10,15 @@ div.modal_popup {
     align-items: flex-start;
     justify-content: center;
     cursor: default;
-    --aug-tl-width: 85%;
-    --aug-tl-height: 2vh;
-    --aug-border: 0.2vh;
+    --aug-bl: 1vh;
+    --aug-bl-extend1: 65%;
+    --aug-bl-extend2: 55%;
+    --aug-tl: 2vh;
+    --aug-tl-extend1: 75%;
+    --aug-tl-extend2: 80%;
+    --aug-border-all: 0.2vh;
     --aug-border-bg: rgb(var(--color_r), var(--color_g), var(--color_b));
-    --aug-inset: 5px;
+    --aug-inset-all: 5px;
     --aug-inset-bg: var(--color_light_black);
 }
 
@@ -31,9 +35,6 @@ div.modal_popup.warning {
     border-top: 0.2vh solid var(--color_yellow);
     border-bottom: 0.2vh solid transparent;
     padding-bottom: 0.2vh;
-}
-div.modal_popup.info {
-    --aug-border: 0.2vh;
 }
 
 div.modal_popup.focus {
@@ -255,10 +256,13 @@ details#shortcutsHelpAccordeon2 table td:nth-child(3) input[type="checkbox"] {
 .modal_content_title{
     width: 85%;
     display: block;
+  
 }
 .modal_content_title_logo{
     width: 15%;
     display: block;
+  
+    padding-left: 10vw;
     font-size: 2vh;
     text-align: right;
     position: relative;
