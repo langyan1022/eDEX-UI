@@ -83,7 +83,7 @@ if (!fs.existsSync(settingsFile)) {
         audioVolume: 1.0,
         disableFeedbackAudio: false,
         clockHours: 24,
-        pingAddr: "1.1.1.1",
+        pingAddr: "baidu.com",
         port: 3000,
         nointro: false,
         nocursor: false,

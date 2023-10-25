@@ -274,12 +274,17 @@ div#fs_space_bar > progress::-webkit-progress-value {
 }
 
 .pdf_options button {
-    width: 40px;
-    height: 40px;
-    padding: 5px;
+    border: none !important;
+    width: 60px;
+    height: 60px;
+    padding: 5px !important;
 }
 
 .pdf_options span {
     margin-left: 1.5vh;
     font-size: 24px;
+}
+.pdf_options .page_container{
+    position: relative;
+    bottom: 20px;
 }

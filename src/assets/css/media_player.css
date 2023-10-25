@@ -4,7 +4,6 @@
     max-width: none;
     max-height: none;
 }
-
 .media_controls {
     border: 2px solid rgb(var(--color_r), var(--color_g), var(--color_b));
     background: var(--color_light_black);

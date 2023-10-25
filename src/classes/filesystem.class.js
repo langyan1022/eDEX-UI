@@ -564,23 +564,23 @@ class FilesystemDisplay {
                     let html = `<div>
                         <div class="pdf_options">
                             <button class="zoom_in">
-                                <svg viewBox="0 0 ${this.icons["zoom-in"].width} ${this.icons["zoom-in"].height}" fill="${this.iconcolor}">
+                                <svg viewBox="0 0 ${this.icons["zoom-in"].width} ${this.icons["zoom-in"].height}" stroke="${this.iconcolor}" >
                                     ${this.icons["zoom-in"].svg}
                                 </svg>
                             </button>
                             <button class="zoom_out">
-                                <svg viewBox="0 0 ${this.icons["zoom-out"].width} ${this.icons["zoom-out"].height}" fill="${this.iconcolor}">
+                                <svg viewBox="0 0 ${this.icons["zoom-out"].width} ${this.icons["zoom-out"].height}" stroke="${this.iconcolor}">
                                     ${this.icons["zoom-out"].svg}
                                 </svg>
                             </button>
                             <button class="previous_page">
-                                <svg viewBox="0 0 ${this.icons["backwards"].width} ${this.icons["backwards"].height}" fill="${this.iconcolor}">
+                                <svg viewBox="0 0 ${this.icons["backwards"].width} ${this.icons["backwards"].height}" stroke="${this.iconcolor}">
                                     ${this.icons["backwards"].svg}
                                 </svg>
                             </button>
-                            <span>Page: <span class="page_num"/></span><span>/</span> <span class="page_count"></span></span>
+                            <span class="page_container">Page: <span class="page_num"/></span><span>/</span> <span class="page_count"></span></span>
                             <button class="next_page">
-                                <svg viewBox="0 0 ${this.icons["forwards"].width} ${this.icons["forwards"].height}" fill="${this.iconcolor}">
+                                <svg viewBox="0 0 ${this.icons["forwards"].width} ${this.icons["forwards"].height}" stroke="${this.iconcolor}">
                                     ${this.icons["forwards"].svg}
                                 </svg>
                             </button>
@@ -649,13 +649,16 @@ class FilesystemDisplay {
                     html = `<img class="fsDisp_mediaDisp" src="${window._encodePathURI(path || block.path)}" ondragstart="return false;">`;
                     break;
                 case "audio":
-                    html = `<div>
+                    html = `<div style="width: 100%;">
                                 <div class="media_container" data-fullscreen="false">
-                                    <audio class="media fsDisp_mediaDisp" preload="auto">
-                                        <source src="${window._encodePathURI(path || block.path)}">
+                                    <audio class="media fsDisp_mediaDisp" preload="auto" src="${window._encodePathURI(path || block.path)}">
                                         Unsupported audio format!
                                     </audio>
+                                    <div class="media_wave" style="width:100%; max-width:1100px; height: 300px; overflow-x: auto; overflow-y: hidden; ">
+                                 
+                                    </div>
                                     <div class="media_controls" data-state="hidden">
+                                   
                                         <div class="playpause media_button" data-state="play">
                                             <svg viewBox="0 0 ${this.icons["play"].width} ${this.icons["play"].height}" fill="${this.iconcolor}">
                                                 ${this.icons["play"].svg}
@@ -681,12 +684,15 @@ class FilesystemDisplay {
                             </div>`;
                     break;
                 case "video":
-                    html = `<div>
+                    html = `<div style="width: 100%;">
                                 <div class="media_container" data-fullscreen="false">
-                                    <video class="media fsDisp_mediaDisp" preload="auto">
-                                        <source src="${window._encodePathURI(path || block.path)}">
+                                    <video class="media fsDisp_mediaDisp" preload="auto" src="${window._encodePathURI(path || block.path)}">
+                                      
                                         Unsupported video format!
                                     </video>
+                                    <div class="media_wave" style="width:100%; max-width:1100px; height: 300px; overflow-x: auto; overflow-y: hidden;">
+                                 
+                                    </div>
                                     <div class="media_controls" data-state="hidden">
                                         <div class="playpause media_button" data-state="play">
                                             <svg viewBox="0 0 ${this.icons["play"].width} ${this.icons["play"].height}" fill="${this.iconcolor}">

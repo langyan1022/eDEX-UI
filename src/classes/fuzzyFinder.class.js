@@ -8,8 +8,8 @@ class FuzzyFinder {
         
         this.disp = new Modal({
             type: "custom",
-            title: "Fuzzy cwd file search",
-            html: `<input type="search" id="fuzzyFinder" placeholder="Search file in cwd..." />
+            title: "在当前文件夹中搜索",
+            html: `<input type="search" id="fuzzyFinder" placeholder="在当前文件夹中搜索..." />
                 <ul id="fuzzyFinder-results">
                     <li class="fuzzyFinderMatchSelected"></li>
                     <li></li>

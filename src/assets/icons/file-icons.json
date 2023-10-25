@@ -8157,7 +8157,7 @@
     "pause": {
         "width": "32",
         "height": "32",
-        "svg": "\n    <path d=\"M23 2 L23 30 M9 2 L9 30\" />\n"
+        "svg": "\n  <rect width=\"28\" height=\"28\"  x=\"2\"  y=\"2\"  />\n"
     },
     "photo": {
         "width": "32",

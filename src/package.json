@@ -47,7 +47,8 @@
     "xterm-addon-attach": "0.6.0",
     "xterm-addon-fit": "0.5.0",
     "xterm-addon-ligatures": "0.5.1",
-    "xterm-addon-webgl": "^0.11.2"
+    "xterm-addon-webgl": "^0.11.2",
+    "wavesurfer.js": "7.4.2"
   },
   "optionalDependencies": {
     "osx-temperature-sensor": "1.0.7"
