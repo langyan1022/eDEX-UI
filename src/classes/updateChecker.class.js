@@ -13,6 +13,7 @@ class UpdateChecker {
             electron.ipcRenderer.send("log", "debug", `Error: ${e}`);
         };
 
+     
         https.get({
             protocol: "https:",
             host: "api.github.com",

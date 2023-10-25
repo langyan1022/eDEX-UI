@@ -1,6 +1,8 @@
 const signale = require("signale");
 const {app, BrowserWindow, dialog, shell} = require("electron");
 
+app.commandLine.appendSwitch('lang', 'zh-CN'); // 设置语言
+
 process.on("uncaughtException", e => {
     signale.fatal(e);
     dialog.showErrorBox("eDEX-UI crashed", e.message || "Cannot retrieve error message.");
@@ -32,11 +34,13 @@ signale.time("Startup");
 const electron = require("electron");
 require('@electron/remote/main').initialize()
 const ipc = electron.ipcMain;
+
 const path = require("path");
 const url = require("url");
 const fs = require("fs");
 const which = require("which");
 const Terminal = require("./classes/terminal.class.js").Terminal;
+
 
 ipc.on("log", (e, type, content) => {
     signale[type](content);
@@ -221,6 +225,7 @@ function createWindow(settings) {
 }
 
 app.on('ready', async () => {
+
     signale.pending(`Loading settings file...`);
     let settings = require(settingsFile);
     signale.pending(`Resolving shell path...`);
@@ -344,6 +349,12 @@ app.on('ready', async () => {
     ipc.on("setKbOverride", (e, arg) => {
         kbOverride = arg;
     });
+    
+    ipc.on('input-method', (event, arg) => {
+       if (arg === 'open') {
+           app.commandLine.appendSwitch('enable-features', 'InputMethod');
+       }
+    });
 });
 
 app.on('web-contents-created', (e, contents) => {
@@ -357,6 +368,7 @@ app.on('web-contents-created', (e, contents) => {
     contents.on('will-navigate', (e, url) => {
         if (url !== contents.getURL()) e.preventDefault();
     });
+
 });
 
 app.on('window-all-closed', () => {

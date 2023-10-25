@@ -9,6 +9,8 @@ class Terminal {
             const {LigaturesAddon} = require("xterm-addon-ligatures");
             const {WebglAddon} = require("xterm-addon-webgl");
             this.Ipc = require("electron").ipcRenderer;
+           
+            this.Ipc.send('input-method', 'open'); // 打开输入法
 
             this.port = opts.port || 3000;
             this.cwd = "";
@@ -111,6 +113,9 @@ class Terminal {
                 lineHeight: window.theme.terminal.lineHeight || 1,
                 scrollback: 1500,
                 bellStyle: "none",
+                env: {
+                   'LANG': 'zh_CN.UTF-8'
+                },
                 theme: {
                     foreground: window.theme.terminal.foreground,
                     background: window.theme.terminal.background,
