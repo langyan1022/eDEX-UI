@@ -1,6 +1,7 @@
 const signale = require("signale");
 const {app, BrowserWindow, dialog, shell} = require("electron");
 
+
 app.commandLine.appendSwitch('lang', 'zh-CN'); // 设置语言
 
 process.on("uncaughtException", e => {
@@ -32,14 +33,14 @@ if (!gotLock) {
 signale.time("Startup");
 
 const electron = require("electron");
-require('@electron/remote/main').initialize()
+require('@electron/remote/main').initialize();
 const ipc = electron.ipcMain;
 
 const path = require("path");
 const url = require("url");
 const fs = require("fs");
 const which = require("which");
-const Terminal = require("./classes/terminal.class.js").Terminal;
+const  Terminal = require("./classes/terminal.class.js").Terminal;
 
 
 ipc.on("log", (e, type, content) => {
@@ -191,7 +192,7 @@ function createWindow(settings) {
         resizable: true,
         movable: settings.allowWindowed || false,
         fullscreen: settings.forceFullscreen || false,
-        autoHideMenuBar: true,
+        autoHideMenuBar: false,
         frame: settings.allowWindowed || false,
         backgroundColor: '#000000',
         webPreferences: {
@@ -242,7 +243,8 @@ app.on('ready', async () => {
         TERM: "xterm-256color",
         COLORTERM: "truecolor",
         TERM_PROGRAM: "eDEX-UI",
-        TERM_PROGRAM_VERSION: app.getVersion()
+        TERM_PROGRAM_VERSION: app.getVersion(),
+        LANG: 'zh_CN.UTF-8',
     }, settings.env);
 
     signale.pending(`Creating new terminal process on port ${settings.port || '3000'}`);
@@ -358,6 +360,7 @@ app.on('ready', async () => {
 });
 
 app.on('web-contents-created', (e, contents) => {
+    require("@electron/remote/main").enable(contents);
     // Prevent creating more than one window
     contents.on('new-window', (e, url) => {
         e.preventDefault();

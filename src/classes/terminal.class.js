@@ -8,6 +8,9 @@ class Terminal {
             const {FitAddon} = require("xterm-addon-fit");
             const {LigaturesAddon} = require("xterm-addon-ligatures");
             const {WebglAddon} = require("xterm-addon-webgl");
+            const { WebLinksAddon } = require ("xterm-addon-web-links");
+            const { Unicode11Addon } = require ("xterm-addon-unicode11");
+
             this.Ipc = require("electron").ipcRenderer;
            
             this.Ipc.send('input-method', 'open'); // 打开输入法
@@ -113,8 +116,10 @@ class Terminal {
                 lineHeight: window.theme.terminal.lineHeight || 1,
                 scrollback: 1500,
                 bellStyle: "none",
+                allowProposedApi:"true",
                 env: {
-                   'LANG': 'zh_CN.UTF-8'
+                   'LANG': 'zh_CN.UTF-8',
+                   "LC_CTYPE":"zh_CN"
                 },
                 theme: {
                     foreground: window.theme.terminal.foreground,
@@ -143,13 +148,19 @@ class Terminal {
             let fitAddon = new FitAddon();
             this.term.loadAddon(fitAddon);
             this.term.open(document.getElementById(opts.parentId));
+
             this.term.loadAddon(new WebglAddon());
+
             let ligaturesAddon = new LigaturesAddon();
             this.term.loadAddon(ligaturesAddon);
-            this.term.attachCustomKeyEventHandler(e => {
-                window.keyboard.keydownHandler(e);
-                return true;
-            });
+            let unicode11Addon  = new Unicode11Addon();
+            this.term.loadAddon(unicode11Addon);
+
+            this.term.loadAddon( new WebLinksAddon());
+            // this.term.attachCustomKeyEventHandler(e => {
+            //     window.keyboard.keydownHandler(e);
+            //     return true;
+            // });
             // Prevent soft-keyboard on touch devices #733
             document.querySelectorAll('.xterm-helper-textarea').forEach(textarea => textarea.setAttribute('readonly', 'readonly'))
             this.term.focus();
@@ -411,6 +422,8 @@ class Terminal {
                 }
             }, 1000);
 
+            process.env.LC_CTYPE = 'zh_CN.UTF-8';
+            
             this.tty = this.Pty.spawn(opts.shell || "bash", (opts.params.length > 0 ? opts.params : (process.platform === "win32" ? [] : ["--login"])), {
                 name: opts.env.TERM || "xterm-256color",
                 cols: 80,
