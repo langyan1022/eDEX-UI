@@ -155,6 +155,7 @@ class Terminal {
             this.term.loadAddon(ligaturesAddon);
             let unicode11Addon  = new Unicode11Addon();
             this.term.loadAddon(unicode11Addon);
+            this.term.unicode.activeVersion ='11';
 
             this.term.loadAddon( new WebLinksAddon());
             // this.term.attachCustomKeyEventHandler(e => {

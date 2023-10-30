@@ -12,7 +12,7 @@
         "font_main_light": "United Sans Light"
     },
     "terminal": {
-        "fontFamily": "微软雅黑, Monaco, Consolas, 'Courier New', monospaceFira Mono, Fira Mono",
+        "fontFamily": "Fira Mono",
         "cursorStyle": "block",
         "foreground": "#aacfd1",
         "background": "#05080d",
