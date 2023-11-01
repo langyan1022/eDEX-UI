@@ -76,6 +76,7 @@ ipc.once("getThemeOverride", (e, theme) => {
         _loadTheme(require(path.join(themesDir, window.settings.theme+".json")));
     }
 });
+
 ipc.send("getThemeOverride");
 // Same for keyboard override/hotswitch
 ipc.once("getKbOverride", (e, layout) => {
@@ -229,6 +230,9 @@ window.audioManager = new AudioManager();
 
 // See #223
 remote.app.focus();
+
+remote.app.commandLine.appendSwitch('enable-features', 'InputMethod');
+remote.app.commandLine.appendSwitch('lang', 'zh-CN');
 
 let i = 0;
 if (window.settings.nointro || window.settings.nointroOverride) {
@@ -543,6 +547,9 @@ async function initUI() {
 
     await _delay(200);
 
+    ipc.send('input-method', 'open'); // 打开输入法
+// 切换到中文输入法  
+    ipc.send('switch-language', 'zh_CN') ;
    // window.updateCheck = new UpdateChecker();
 }
 

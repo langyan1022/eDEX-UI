@@ -10,11 +10,10 @@ class Terminal {
             const {WebglAddon} = require("xterm-addon-webgl");
             const { WebLinksAddon } = require ("xterm-addon-web-links");
             const { Unicode11Addon } = require ("xterm-addon-unicode11");
-
+            const remote = require("@electron/remote");
             this.Ipc = require("electron").ipcRenderer;
            
-            this.Ipc.send('input-method', 'open'); // 打开输入法
-
+            console.log("----"+remote.app.getLocale());
             this.port = opts.port || 3000;
             this.cwd = "";
             this.oncwdchange = () => {};
@@ -109,7 +108,7 @@ class Terminal {
                 cursorStyle: window.theme.terminal.cursorStyle || "block",
                 allowTransparency: window.theme.terminal.allowTransparency || false,
                 fontFamily: window.theme.terminal.fontFamily || "Fira Mono",
-                fontSize: window.theme.terminal.fontSize || window.settings.termFontSize || 15,
+                fontSize: window.theme.terminal.fontSize || window.settings.termFontSize || 18,
                 fontWeight: window.theme.terminal.fontWeight || "normal",
                 fontWeightBold: window.theme.terminal.fontWeightBold || "bold",
                 letterSpacing: window.theme.terminal.letterSpacing || 0,
@@ -118,8 +117,7 @@ class Terminal {
                 bellStyle: "none",
                 allowProposedApi:"true",
                 env: {
-                   'LANG': 'zh_CN.UTF-8',
-                   "LC_CTYPE":"zh_CN"
+                   'LANG': 'zh_CN.UTF-8'
                 },
                 theme: {
                     foreground: window.theme.terminal.foreground,
@@ -158,14 +156,21 @@ class Terminal {
             this.term.unicode.activeVersion ='11';
 
             this.term.loadAddon( new WebLinksAddon());
-            // this.term.attachCustomKeyEventHandler(e => {
-            //     window.keyboard.keydownHandler(e);
-            //     return true;
-            // });
+            this.term.attachCustomKeyEventHandler(e => {
+                window.keyboard.keydownHandler(e);
+                return true;
+            });
             // Prevent soft-keyboard on touch devices #733
             document.querySelectorAll('.xterm-helper-textarea').forEach(textarea => textarea.setAttribute('readonly', 'readonly'))
             this.term.focus();
+            
+            this.Ipc.send('input-method', 'open'); // 打开输入法
+// 切换到中文输入法  
+              this.Ipc.send('switch-language', 'zh_CN') ;
 
+            this.term.onData(key => { 
+                if(key.length > 1) this.write(key);
+            });
             this.Ipc.send("terminal_channel-"+this.port, "Renderer startup");
             this.Ipc.on("terminal_channel-"+this.port, (e, ...args) => {
                 switch(args[0]) {
@@ -422,8 +427,6 @@ class Terminal {
                     });
                 }
             }, 1000);
-
-            process.env.LC_CTYPE = 'zh_CN.UTF-8';
             
             this.tty = this.Pty.spawn(opts.shell || "bash", (opts.params.length > 0 ? opts.params : (process.platform === "win32" ? [] : ["--login"])), {
                 name: opts.env.TERM || "xterm-256color",

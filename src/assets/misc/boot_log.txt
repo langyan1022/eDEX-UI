@@ -1,4 +1,4 @@
-Welcome to eDEX-UI!
+Welcome to 550W!
 vm_page_bootstrap: 987323 free pages and 53061 wired pages
 kext submap [0xffffff7f8072e000 - 0xffffff8000000000], kernel text [0xffffff8000200000 - 0xffffff800072e000]
 zone leak detection enabled
