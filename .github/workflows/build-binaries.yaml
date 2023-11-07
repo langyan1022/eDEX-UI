@@ -28,6 +28,10 @@ jobs:
       run: |
         sudo apt update
         sudo apt install libc6-dev-i386 gcc-multilib g++-multilib
+    - name: Setup python3
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' 
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
@@ -147,6 +151,10 @@ jobs:
         # https://github.com/electron/get#how-it-works
         path: ~/AppData/Local/electron/Cache
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+    - name: Setup python3
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' 
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
@@ -186,6 +194,10 @@ jobs:
         # https://github.com/electron/get#how-it-works
         path: ~/Library/Caches/electron
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+     - name: Setup python3
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' 
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
