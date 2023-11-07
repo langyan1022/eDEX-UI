@@ -194,7 +194,7 @@ jobs:
         # https://github.com/electron/get#how-it-works
         path: ~/Library/Caches/electron
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-     - name: Setup python3
+    - name: Setup python3
       uses: actions/setup-python@v4
       with:
         python-version: '3.10' 
