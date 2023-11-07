@@ -13,9 +13,9 @@
   ],
   "main": "src/_boot.js",
   "scripts": {
-    "start": "electron src --nointro",
+    "start": "chcp 65001 && electron src --nointro",
     "install-linux": "npm install && cd src && npm install && ./../node_modules/.bin/electron-rebuild -f -w node-pty && cd ..",
-    "preinstall-windows": "npm install --global --production windows-build-tools && npm install --global node-gyp && setx PYTHON \"%USERPROFILE%\\.windows-build-tools\\python27\\python.exe\"",
+    "preinstall-windows": "npm install --global --production windows-build-tools && npm install --global node-gyp",
     "install-windows": "npm install && cd src && npm install && ..\\node_modules\\.bin\\electron-rebuild -f -w node-pty && cd ..",
     "prebuild-linux": "rsync -a --info=progress2 src/ prebuild-src --exclude node_modules && cd prebuild-src && npm install",
     "prebuild-darwin": "rsync -a src/ prebuild-src --exclude node_modules && cd prebuild-src && npm install",
@@ -100,12 +100,14 @@
   },
   "dependencies": {
     "clean-css": "5.2.1",
-    "electron": "^14.2.9",
+    "electron": "25.3.2",
     "electron-builder": "^24.6.4",
-    "electron-rebuild": "^2.3.5",
+    "electron-rebuild": "^3.2.9",
     "mime-types": "^2.1.33",
-    "node-abi": "2.30.1",
+    "node-abi": "^3.45.0",
+    "node-gyp": "9.4.1",
     "node-json-minify": "1.0.0",
+    "node-pty": "^1.0.0",
     "terser": "^5.9.0"
   },
   "optionalDependencies": {

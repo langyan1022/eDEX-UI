@@ -214,6 +214,7 @@ function createWindow(settings) {
 	        enableRemoteModule: true,
             contextIsolation: false,
             backgroundThrottling: false,
+            inputEncoding: 'auto',
             webSecurity: true,
             nodeIntegration: true,
             nodeIntegrationInSubFrames: false,

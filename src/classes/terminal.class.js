@@ -10,6 +10,8 @@ class Terminal {
             const {WebglAddon} = require("xterm-addon-webgl");
             const { WebLinksAddon } = require ("xterm-addon-web-links");
             const { Unicode11Addon } = require ("xterm-addon-unicode11");
+            const { CanvasAddon } = require ("xterm-addon-canvas");
+            
             const remote = require("@electron/remote");
             this.Ipc = require("electron").ipcRenderer;
            
@@ -148,7 +150,7 @@ class Terminal {
             this.term.open(document.getElementById(opts.parentId));
 
             this.term.loadAddon(new WebglAddon());
-
+            this.term.loadAddon( new CanvasAddon());
             let ligaturesAddon = new LigaturesAddon();
             this.term.loadAddon(ligaturesAddon);
             let unicode11Addon  = new Unicode11Addon();
@@ -161,13 +163,9 @@ class Terminal {
                 return true;
             });
             // Prevent soft-keyboard on touch devices #733
-            document.querySelectorAll('.xterm-helper-textarea').forEach(textarea => textarea.setAttribute('readonly', 'readonly'))
+            //document.querySelectorAll('.xterm-helper-textarea').forEach(textarea => textarea.setAttribute('readonly', 'readonly'))
             this.term.focus();
-            
-            this.Ipc.send('input-method', 'open'); // 打开输入法
-// 切换到中文输入法  
-              this.Ipc.send('switch-language', 'zh_CN') ;
-
+           
             this.term.onData(key => { 
                 if(key.length > 1) this.write(key);
             });
