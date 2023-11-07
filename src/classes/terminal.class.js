@@ -15,7 +15,6 @@ class Terminal {
             const remote = require("@electron/remote");
             this.Ipc = require("electron").ipcRenderer;
            
-            console.log("----"+remote.app.getLocale());
             this.port = opts.port || 3000;
             this.cwd = "";
             this.oncwdchange = () => {};
@@ -166,9 +165,6 @@ class Terminal {
             //document.querySelectorAll('.xterm-helper-textarea').forEach(textarea => textarea.setAttribute('readonly', 'readonly'))
             this.term.focus();
            
-            this.term.onData(key => { 
-                if(key.length > 1) this.write(key);
-            });
             this.Ipc.send("terminal_channel-"+this.port, "Renderer startup");
             this.Ipc.on("terminal_channel-"+this.port, (e, ...args) => {
                 switch(args[0]) {
