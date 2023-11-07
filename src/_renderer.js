@@ -547,9 +547,6 @@ async function initUI() {
 
     await _delay(200);
 
-    ipc.send('input-method', 'open'); // 打开输入法
-// 切换到中文输入法  
-    ipc.send('switch-language', 'zh_CN') ;
    // window.updateCheck = new UpdateChecker();
 }
 

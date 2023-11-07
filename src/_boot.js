@@ -46,21 +46,7 @@ const  Terminal = require("./classes/terminal.class.js").Terminal;
 ipc.on("log", (e, type, content) => {
     signale[type](content);
 });
-ipc.on('switch-language', (event, language) => {  
-    switch (language) {  
-      case 'zh_CN':  
-        console.log("zh_CN");
-        // 切换到中文输入法  
-        app.commandLine.appendSwitch('lang', 'zh_CN');  
-        break;  
-      case 'en':  
-        // 切换到英文输入法  
-        app.commandLine.appendSwitch('lang', 'en');  
-        break;  
-      default:  
-        console.error('Invalid language specified')  
-    }  
-  });
+
 var win, tty, extraTtys;
 const settingsFile = path.join(electron.app.getPath("userData"), "settings.json");
 const shortcutsFile = path.join(electron.app.getPath("userData"), "shortcuts.json");
@@ -206,7 +192,7 @@ function createWindow(settings) {
         resizable: true,
         movable: settings.allowWindowed || false,
         fullscreen: settings.forceFullscreen || false,
-        autoHideMenuBar: false,
+        autoHideMenuBar: true,
         frame: settings.allowWindowed || false,
         backgroundColor: '#000000',
         webPreferences: {
@@ -367,11 +353,6 @@ app.on('ready', async () => {
         kbOverride = arg;
     });
     
-    ipc.on('input-method', (event, arg) => {
-       if (arg === 'open') {
-           app.commandLine.appendSwitch('enable-features', 'InputMethod');
-       }
-    });
 });
 
 app.on('web-contents-created', (e, contents) => {
