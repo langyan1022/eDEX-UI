@@ -22,8 +22,10 @@
     "url": "https://github.com/GitSquared/edex-ui/issues"
   },
   "homepage": "https://github.com/GitSquared/edex-ui#readme",
+  "devDependencies": {
+    "electron": "25.3.2"
+  },
   "dependencies": {
-    "electron": "25.3.2",
     "@electron/remote": "^2.0.12",
     "augmented-ui": "2.0.0",
     "color": "3.2.1",

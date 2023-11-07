@@ -13,7 +13,7 @@
   ],
   "main": "src/_boot.js",
   "scripts": {
-    "start": "chcp 65001 && electron src --nointro",
+    "start": "chcp 65001 && electron src ",
     "install-linux": "npm install && cd src && npm install && ./../node_modules/.bin/electron-rebuild -f -w node-pty && cd ..",
     "preinstall-windows": "npm install --global --production windows-build-tools && npm install --global node-gyp",
     "install-windows": "npm install && cd src && npm install && ..\\node_modules\\.bin\\electron-rebuild -f -w node-pty && cd ..",
