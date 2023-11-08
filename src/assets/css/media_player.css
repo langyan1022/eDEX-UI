@@ -7,8 +7,27 @@
 .media_controls {
     border: 2px solid rgb(var(--color_r), var(--color_g), var(--color_b));
     background: var(--color_light_black);
+    width:100%;
+	display:flex;
+
+}
+.media_controls .left{
+    width: 30px;
+    padding-top: 3px;
+
+}
+.media_controls .right{
+    width: 256px;
+    text-align: right;
+}
+.media_controls .right-video{
+    width: 290px;
 }
 
+.media_controls .center{
+    flex:1;
+    padding: 12px;
+}
 .media_controls>div {
     text-align: center;
     display: inline-block;
@@ -16,7 +35,10 @@
     padding-left: 0.1em;
     padding-right: 0.1em;
 }
-
+.media_controls .right>div{
+    display: inline-block;
+    vertical-align: middle;
+}
 .media_controls .media_button {
     font-size: 1.5em;
     height: 1em;
@@ -29,8 +51,8 @@
 }
 
 .media_controls .media_time {
-    margin-right: 2vw;
-    width: 4vw;
+    width: 3vw;
+    text-align: left;
 }
 
 .media_controls .volume_icon {

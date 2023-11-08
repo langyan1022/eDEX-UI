@@ -249,11 +249,11 @@ details#shortcutsHelpAccordeon2 table td:nth-child(3) input[type="checkbox"] {
     display: block;
 }
 .modal_content_title_logo{
-    width:calc(15%-11vw);
     display: block;
     padding-left: 10vw;
     font-size: 2vh;
     text-align: right;
-    position: relative;
-    top:-2vh;
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
 }

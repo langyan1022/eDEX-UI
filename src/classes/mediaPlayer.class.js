@@ -16,23 +16,28 @@ class MediaPlayer {
         const fullscreen = document.getElementById(modalElementId).querySelector(".fs");
         const mediaTime = document.getElementById(modalElementId).querySelector(".media_time");
         const WaveSurfer= require("wavesurfer.js");
-        const wavesurfer  = WaveSurfer.create({
-            container: document.getElementById(modalElementId).querySelector('.media_wave'),
-            progressColor: 'rgba('+window.theme.r+', '+ window.theme.g+', '+ window.theme.b+', 0.3)',
-            cursorColor: 'rgba('+window.theme.r+', '+ window.theme.g+', '+ window.theme.b+', 1)',
-            waveColor: 'rgba('+window.theme.r+', '+ window.theme.g+', '+ window.theme.b+', 0.8)',
-            backgroundColor: 'rgba(255, 255, 255, 0)',
-            scrollParent : true,
-            minPxPerSec:10,
-            height:300,
-            interact:false,
-            mediaType:type,
-            autoCenter:true,
-            hideScrollbar:true,
-            responsive:true,
-            minPxPerSec: 30
-          });
-        wavesurfer.load(media.getAttribute('src'));
+
+        let wavesurfer=null;
+        if(type=='audio'){
+            wavesurfer  = WaveSurfer.create({
+                container: document.getElementById(modalElementId).querySelector('.media_wave'),
+                progressColor: 'rgba('+window.theme.r+', '+ window.theme.g+', '+ window.theme.b+', 0.3)',
+                cursorColor: 'rgba('+window.theme.r+', '+ window.theme.g+', '+ window.theme.b+', 1)',
+                waveColor: 'rgba('+window.theme.r+', '+ window.theme.g+', '+ window.theme.b+', 0.8)',
+                backgroundColor: 'rgba(255, 255, 255, 0)',
+                scrollParent : true,
+                minPxPerSec:10,
+                height:300,
+                interact:false,
+                mediaType:type,
+                autoCenter:true,
+                hideScrollbar:true,
+                responsive:true,
+                minPxPerSec: 30
+              });
+            wavesurfer.load(media.getAttribute('src'));
+        }
+       
      
 
         let volumeDrag = false;
@@ -131,7 +136,7 @@ class MediaPlayer {
             if (vol < 0) {
                 vol = 0;
             }
-            wavesurfer.setVolume(vol);
+            if(wavesurfer) wavesurfer.setVolume(vol);
             volumeBar.style.clip = "rect(0px, " + ((vol * 100) / 20) + "vw,2vh,0px)";
             media.volume = vol;
             this.updateVolumeIcon(vol);
@@ -162,7 +167,7 @@ class MediaPlayer {
 
         volumeIcon.addEventListener("click", () => {
             media.muted = !media.muted;
-            wavesurfer.setMute(media.muted);
+            if(wavesurfer) wavesurfer.setMute(media.muted);
             if (media.muted) {
                 let icon = "mute";
                 volumeIcon.innerHTML = `<svg viewBox="0 0 ${icons[icon].width} ${icons[icon].height}" fill="${iconcolor}">
@@ -176,13 +181,13 @@ class MediaPlayer {
         progress.addEventListener("click", function(e) {
             const pos = (e.pageX - (this.offsetLeft + this.offsetParent.offsetLeft)) / this.offsetWidth;
             media.currentTime = pos * media.duration;
-            wavesurfer.seekTo(pos);
+            if(wavesurfer) wavesurfer.seekTo(pos);
             
         });
       
 
         playpause.addEventListener("click", () => {
-            wavesurfer.playPause();
+            if(wavesurfer) wavesurfer.playPause();
             (media.paused || media.ended) ? media.play(): media.pause();
         });
         if (fullscreen) fullscreen.addEventListener("click", () => { this.handleFullscreen() });
