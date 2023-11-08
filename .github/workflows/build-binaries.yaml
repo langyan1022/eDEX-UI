@@ -1,6 +1,9 @@
 name: Build packaged binaries
 
-on: [push, pull_request, create]
+on:
+  push:
+    tags:
+    - 'v*'
 
 jobs:
   build-linux:
