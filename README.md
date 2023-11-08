@@ -1,17 +1,19 @@
 <p>fork https://github.com/GitSquared/edex-ui</p>
-<p>
-修改内容如下：
-1：修复2.2.8版本terminal不能输入中文的问题
-2：删除自动更新geo-lite数据库的问题（国内环境导致大多数人无法正常访问github,曾经试图放到gitee，但是文件大一点，gitee需要登录才能下载，太麻烦了)
-3：修改部分样式
-4：升级部分依赖版本
 
+### 修改内容如下：
+- 1：修复2.2.8版本terminal不能输入中文的问题
+- 2：删除自动更新geo-lite数据库的问题（国内环境导致大多数人无法正常访问github,曾经试图放到gitee，但是文件大一点，gitee需要登录才能下载，太麻烦了)
+- 3：修改部分样式
+- 4：升级部分依赖版本
+<br/>
 使用需要更新geo数据的话，从<a href="https://github.com/GitSquared/node-geolite2-redist/blob/master/redist/GeoLite2-City.tar.gz">Github</a>
 或者国内                   <a href="https://gitee.com/ly1022/node-geolite2-redist/blob/master/redist/GeoLite2-City.tar.gz ">Gitee</a>
-下载最新的数据文件后放到geoCache目录下
-windows 路径：C:\Users\[替换成你的用户名]\AppData\Roaming\eDEX-UI\geoIPcache
-linux:未知（打开edex-ui 命令行默认的目录找一下）
-macos：未知（打开edex-ui 命令行默认的目录找一下）
+
+下载最新的数据文件后放到geoCache目录下:
+
+- windows 路径：C:\Users\[替换成你的用户名]\AppData\Roaming\eDEX-UI\geoIPcache
+- linux:未知（打开edex-ui 命令行默认的目录找一下）
+- macos：未知（打开edex-ui 命令行默认的目录找一下）
 </p>
 <p align="center">
   <br>
